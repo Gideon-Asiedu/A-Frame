@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Table with Chairs and Milk (A-Frame)</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Lighting -->
+      <a-entity light="type: ambient; intensity: 0.6"></a-entity>
+      <a-entity light="type: directional; intensity: 0.8" position="1 4 2"></a-entity>
+
+      <!-- Floor -->
+      <a-plane rotation="-90 0 0" width="20" height="20" color="#8B7355" position="0 0 -5"></a-plane>
+
+      <!-- Back Wall -->
+      <a-plane rotation="0 0 0" width="20" height="10" color="#D3D3D3" position="0 5 -10"></a-plane>
+
+      <!-- Left Wall -->
+      <a-plane rotation="0 90 0" width="15" height="10" color="#C0C0C0" position="-10 5 -5"></a-plane>
+
+      <!-- Right Wall -->
+      <a-plane rotation="0 -90 0" width="15" height="10" color="#C0C0C0" position="10 5 -5"></a-plane>
+
+      <!-- Table (a flattened box) -->
+      <a-box id="table-top"
+             position="0 0.80 -3"
+             depth="1.4" height="0.12" width="2"
+             color="#8B5A2B"></a-box>
+
+      <!-- Table legs -->
+      <a-box position="-0.9 0.375 -2.4" width="0.08" height="0.75" depth="0.08" color="#5C3A21"></a-box>
+      <a-box position="0.9 0.375 -2.4"  width="0.08" height="0.75" depth="0.08" color="#5C3A21"></a-box>
+      <a-box position="-0.9 0.375 -3.6" width="0.08" height="0.75" depth="0.08" color="#5C3A21"></a-box>
+      <a-box position="0.9 0.375 -3.6"  width="0.08" height="0.75" depth="0.08" color="#5C3A21"></a-box>
+
+      <!-- Chair 1 (front, facing back) -->
+      <a-entity position="-1.5 0 -3" rotation="0 -90 0">
+        <!-- seat -->
+        <a-box position="0 0.4 0" width="0.6" depth="0.6" height="0.12" color="#333"></a-box>
+        <!-- back -->
+        <a-box position="0 0.90 0.24" width="0.6" depth="0.12" height="1.1" color="#333"></a-box>
+        <!-- legs -->
+        <a-box position="-0.25 0.18 0.25" width="0.08" depth="0.08" height="0.36" color="#222"></a-box>
+        <a-box position="0.25 0.18 0.25" width="0.08" depth="0.08" height="0.36" color="#222"></a-box>
+        <a-box position="-0.25 0.18 -0.25" width="0.08" depth="0.08" height="0.36" color="#222"></a-box>
+        <a-box position="0.25 0.18 -0.25" width="0.08" depth="0.08" height="0.36" color="#222"></a-box>
+      </a-entity>
+
+      <!-- Chair 2 (back, facing front) -->
+      <a-entity position="1.5 0 -3" rotation="0 90 0">
+        <!-- seat -->
+        <a-box position="0 0.4 0" width="0.6" depth="0.6" height="0.12" color="#333"></a-box>
+        <!-- back -->
+        <a-box position="0 0.90 0.24" width="0.6" depth="0.12" height="1.1" color="#333"></a-box>
+        <!-- legs -->
+        <a-box position="-0.25 0.18 0.25" width="0.08" depth="0.08" height="0.36" color="#222"></a-box>
+        <a-box position="0.25 0.18 0.25" width="0.08" depth="0.08" height="0.36" color="#222"></a-box>
+        <a-box position="-0.25 0.18 -0.25" width="0.08" depth="0.08" height="0.36" color="#222"></a-box>
+        <a-box position="0.25 0.18 -0.25" width="0.08" depth="0.08" height="0.36" color="#222"></a-box>
+      </a-entity>
+
+      <!-- Cup 1 (left side) -->
+      <a-entity position="-0.45 0.88 -3">
+        <!-- Cup body (cylinder) -->
+        <a-cylinder radius="0.08" height="0.12" color="#f5f5f5"></a-cylinder>
+        <!-- Cup rim (open top) -->
+        <a-torus position="0 0.06 0" radius="0.08" radius-tubular="0.006" color="#d0d0d0" rotation="90 0 0"></a-torus>
+      </a-entity>
+
+      <!-- Milk carton on the table (LEFT-CENTER) -->
+      <a-box id="milk-carton"
+             position="-0.2 0.95 -3"
+             width="0.25" height="0.45" depth="0.15"
+             color="#ffffff" material="metalness: 0.1; roughness: 0.9"></a-box>
+
+      <!-- Milk label with text -->
+      <a-plane position="-0.2 0.95 -2.925" rotation="0 0 0" width="0.25" height="0.45" color="#2B7DBA"></a-plane>
+      <a-text value="MILK" align="center" position="-0.2 0.95 -2.91" width="2" color="#ffffff" font="mozillavr" font-size="64"></a-text>
+
+      <!-- Milo Tin on table (RIGHT-CENTER) -->
+      <a-cylinder position="0.2 0.88 -3" 
+                   radius="0.1" height="0.35"
+                   color="#2D5016"></a-cylinder>
+
+      <!-- Milo Tin Label (Red plane on front) -->
+      <a-plane position="0.31 0.88 -2.99" rotation="0 0 0" width="0.18" height="0.35" color="#DC143C"></a-plane>
+
+      <!-- Milo Text on label - FIXED FOR VISIBILITY -->
+      <a-text value="MILO" align="center" position="0.31 0.88 -2.96" width="3" color="#ffffff" font="mozillavr" font-size="80"></a-text>
+
+      <!-- Cup 2 (right side) -->
+      <a-entity position="0.45 0.88 -3">
+        <!-- Cup body (cylinder) -->
+        <a-cylinder radius="0.08" height="0.12" color="#f5f5f5"></a-cylinder>
+        <!-- Cup rim (open top) -->
+        <a-torus position="0 0.06 0" radius="0.08" radius-tubular="0.006" color="#d0d0d0" rotation="90 0 0"></a-torus>
+      </a-entity>
+
+      <!-- Camera (orbit controls via look + WASD) -->
+      <a-entity camera position="0 1.6 0.5" wasd-controls look-controls></a-entity>
+    </a-scene>
+  </body>
+</html>
